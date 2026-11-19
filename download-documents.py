@@ -1,0 +1,112 @@
+"""Downloads the policy and code of conduct PDFs into the documents folder. Run: python download-documents.py"""
+import os, urllib.request
+FILES = [
+ [
+  "code-of-conduct",
+  "https://shantiguruindustries.com/pdf/code_of_conduct_pdf/COC2.pdf",
+  "COC2.pdf"
+ ],
+ [
+  "code-of-conduct",
+  "https://shantiguruindustries.com/pdf/code_of_conduct_pdf/COC1.pdf",
+  "COC1.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P2.pdf",
+  "P2.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P3.pdf",
+  "P3.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P5.pdf",
+  "P5.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P6.pdf",
+  "P6.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P7.pdf",
+  "P7.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P8.pdf",
+  "P8.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P9.pdf",
+  "P9.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/dividend-policy.pdf",
+  "dividend-policy.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/corporate-social-responsility-policy.pdf",
+  "corporate-social-responsility-policy.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/independent-directors-policy.pdf",
+  "independent-directors-policy.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P10.pdf",
+  "P10.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P11.pdf",
+  "P11.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P4.pdf",
+  "P4.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/Independent-directors-time-spent.pdf",
+  "Independent-directors-time-spent.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P1.pdf",
+  "P1.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P12.pdf",
+  "P12.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/P13.pdf",
+  "P13.pdf"
+ ],
+ [
+  "policies",
+  "https://shantiguruindustries.com/pdf/policies_pdf/madhu-suthan-apt-letter.pdf",
+  "madhu-suthan-apt-letter.pdf"
+ ]
+]
+for folder, url, name in FILES:
+    os.makedirs(os.path.join("documents", folder), exist_ok=True)
+    dest = os.path.join("documents", folder, name)
+    try:
+        urllib.request.urlretrieve(url, dest)
+        print("ok  ", dest)
+    except Exception as e:
+        print("FAIL", dest, e)
